@@ -15,6 +15,10 @@ spec:
     metadata:
       labels:
         app: kennethreitz-httpbin
+      annotations:
+        dapr.io/app-id: svc-kennethreitz-httpbin
+        dapr.io/app-port: '80'
+        dapr.io/enabled: 'true'
     spec:
       imagePullSecrets:
       - name: key-kennethreitz-httpbin          
