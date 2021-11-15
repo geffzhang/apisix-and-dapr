@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kennethreitz-httpbin
+  namespace: kind-test
+  labels:
+    app: kennethreitz-httpbin
+
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: kennethreitz-httpbin
+  template:
+    metadata:
+      labels:
+        app: kennethreitz-httpbin
+    spec:
+      imagePullSecrets:
+      - name: key-kennethreitz-httpbin          
+      containers:
+      - name: kennethreitz-httpbin
+        image: kennethreitz/httpbin
+        imagePullPolicy: Always
+        resources:
+            requests:
+              cpu: '0.5'
+              memory: "251Mi"
+            limits:
+              cpu: '1'
+              memory: "1024Mi"
+        env:
+        - name: logs_kennethreitz-httpbin
+          value: /opt/logs/*.log
+        #就绪指针
+        readinessProbe:
+          exec:
+            command:
+              - cat
+              - /tmp/healthy.txt
+          initialDelaySeconds: 40  
+        #优雅停止
+        lifecycle:
+          preStop: 
+            exec:
+              command:
+                - /bin/sh
+                - /tmp/stop.sh
+      terminationGracePeriodSeconds: 60  
+
+
+
+
+

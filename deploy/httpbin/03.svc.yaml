@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: svc-kennethreitz-httpbin
+  namespace: kind-test
+spec:
+  selector:
+    app: kennethreitz-httpbin
+  ports:
+  - name: http
+    port: 80          
+    protocol: TCP
+    targetPort: 80 
+

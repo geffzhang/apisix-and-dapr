@@ -1,0 +1,17 @@
+apisix:
+  podAnnotations:
+    dapr.io/app-id: apisix-gateway
+    dapr.io/app-port: '9080'
+    dapr.io/enable-metrics: 'true'
+    dapr.io/enabled: 'true'
+    dapr.io/metrics-port: '9099'
+    dapr.io/sidecar-listen-addresses: 0.0.0.0	
+
+gateway:
+  type: LoadBalancer
+  
+ingress-controller:
+  enabled: true
+
+dashboard:
+  enabled: true
