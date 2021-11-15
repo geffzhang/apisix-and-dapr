@@ -36,20 +36,6 @@ spec:
         env:
         - name: logs_kennethreitz-httpbin
           value: /opt/logs/*.log
-        #就绪指针
-        readinessProbe:
-          exec:
-            command:
-              - cat
-              - /tmp/healthy.txt
-          initialDelaySeconds: 40  
-        #优雅停止
-        lifecycle:
-          preStop: 
-            exec:
-              command:
-                - /bin/sh
-                - /tmp/stop.sh
       terminationGracePeriodSeconds: 60  
 
 
