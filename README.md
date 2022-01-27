@@ -4,4 +4,4 @@
 
 [How to integrate with Dapr to build Apache APISIX Gateway Controller](https://apisix.apache.org/blog/2021/11/17/dapr-with-apisix)
 
-[Enable Dapr with Apache APISIX Ingress Controller](Ehttps://blog.dapr.io/posts/2022/01/13/enable-dapr-with-apache-apisix-ingress-controller/)
+[Enable Dapr with Apache APISIX Ingress Controller](https://blog.dapr.io/posts/2022/01/13/enable-dapr-with-apache-apisix-ingress-controller/)
